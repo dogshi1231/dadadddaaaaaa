@@ -1,0 +1,810 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 1rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+/* Updated dark theme with deep blacks and refined grays */
+.dark {
+  --background: #000000;
+  --foreground: oklch(0.985 0 0);
+  --card: #0f0f12;
+  --card-foreground: oklch(0.985 0 0);
+  --popover: #15151a;
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: #1a1a1f;
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: #1a1a1f;
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: #1a1a1f;
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: #2a2a30;
+  --input: #1a1a1f;
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #0f0f12;
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: #1a1a1f;
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: #2a2a30;
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Smooth page transitions */
+  .content-wrapper {
+    animation: fadeIn 0.3s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Added custom utility classes for enhanced visual effects */
+@layer utilities {
+  .glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3), inset 0 0 20px rgba(34, 197, 94, 0.05);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.35), 0 8px 15px rgba(0, 0, 0, 0.6);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glow-yellow {
+    box-shadow: 0 0 15px rgba(234, 179, 8, 0.4);
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Updated nav-gradient to match Eldorado's dark glossy look */
+  .nav-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(26, 29, 46, 0.95) 0%,
+      rgba(22, 24, 42, 0.9) 50%,
+      rgba(26, 29, 46, 0.95) 100%
+    );
+    backdrop-filter: blur(10px);
+  }
+
+  .vignette {
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Enhanced neon glow dropdown with smooth animations */
+  .dropdown-neon {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .dropdown-neon.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+  }
+
+  /* Smooth dropdown item hover effects */
+  .dropdown-neon-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease, color 0.16s ease;
+  }
+
+  .dropdown-neon-item:hover {
+    background: rgba(255, 0, 0, 0.12);
+    box-shadow: 0 0 16px rgba(255, 0, 0, 0.5);
+    transform: translateX(4px);
+    color: #fff;
+  }
+
+  /* Icon styling with red glow */
+  .dropdown-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.4));
+  }
+
+  /* Status pill for UNDETECTED badges */
+  .status-pill {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 3px 6px;
+    border-radius: 4px;
+    color: #2ecc71;
+    background: rgba(46, 204, 113, 0.12);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+    white-space: nowrap;
+  }
+
+  /* Added pearl/shimmer button hover effects */
+  .button-pearl {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .button-pearl::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+  }
+
+  .button-pearl:hover::before {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+
+  .button-pearl:hover {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.6), 0 0 60px rgba(220, 38, 38, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .button-outline-pearl {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .button-outline-pearl::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+  }
+
+  .button-outline-pearl:hover::before {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+
+  .button-outline-pearl:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Added Discord button styles */
+  .discord-button {
+    background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .discord-button::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+  }
+
+  .discord-button:hover::before {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+
+  .discord-button:hover {
+    box-shadow: 0 0 40px rgba(88, 101, 242, 0.6), 0 8px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Updated Need Help glow from red to white */
+  .need-help-glow {
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.2);
+    animation: whiteGlowPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes whiteGlowPulse {
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4), 0 0 30px
+        rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px
+        rgba(255, 255, 255, 0.4), 0 0 50px rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  @keyframes dropdownFade {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Added 3D tilt effect styles for product cards */
+  .product-card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .product-card-3d.tilt-effect {
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+  }
+
+  .product-card-3d.tilt-effect:hover {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .product-card-3d.tilt-effect:not(:hover) {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+  }
+
+  @media (max-width: 768px), (hover: none) {
+    .product-card-3d.tilt-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card-3d.tilt-effect:hover {
+      transform: translateY(-10px) !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  }
+
+  /* Variant Modal Styles */
+  .variant-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .variant-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .variant-modal-content {
+    background: #000000;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.3);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    border: 2px solid #ffffff;
+  }
+
+  .variant-modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .variant-modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .variant-modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    color: #ffffff;
+  }
+
+  .variant-modal-close:hover {
+    background: #333333;
+  }
+
+  .close-icon {
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+  }
+
+  .variant-modal-body {
+    padding: 2rem;
+  }
+
+  .variant-modal-description {
+    color: #cccccc;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .variant-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .variant-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background: #000000;
+  }
+
+  .variant-option:hover {
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    background: #111111;
+  }
+
+  .variant-option.selected {
+    border-color: #ffffff;
+    background: #222222;
+  }
+
+  .variant-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .variant-name {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.1rem;
+  }
+
+  .variant-desc {
+    color: #cccccc;
+    font-size: 0.9rem;
+  }
+
+  .variant-price {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.2rem;
+  }
+
+  .variant-badge {
+    position: absolute;
+    top: -8px;
+    right: 1rem;
+    background: #00ff00;
+    color: #000000;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+
+  .variant-badge.premium {
+    background: #000000;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+  }
+
+  /* added CSS for embed-ready state in variant modal */
+  .embed-ready {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(15, 15, 25, 0.6) 100%);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* Enhanced button hover effects with pearl shimmer */
+  @keyframes buttonShine {
+    to {
+      transform: translateX(300%) rotate(20deg);
+    }
+  }
+
+  @keyframes buttonPearlShimmer {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .btn-buy-now {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .btn-buy-now:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-buy-now:active {
+    transform: scale(0.98);
+  }
+
+  .btn-buy-now::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffffff 0%, #e0e0e0 25%, #808080 50%, #404040 75%, #000000 100%);
+    background-size: 200% 200%;
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0.6;
+    animation: buttonPearlShimmer 3s ease-in-out infinite;
+  }
+
+  .btn-buy-now::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -30%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    transform: translateX(-100%) rotate(20deg);
+  }
+
+  .btn-buy-now:hover::after {
+    animation: buttonShine 800ms ease-in-out;
+  }
+
+  .btn-buy-now:hover::before {
+    opacity: 1;
+    animation: buttonPearlShimmer 1s ease-in-out infinite;
+  }
+
+  .btn-buy-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Added global background shell styles for layered interactive background */
+/* --- Global background shell from Site A --- */
+html {
+  background: #000000;
+}
+
+body {
+  background: #000000;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Fixed z-index from -1 to 0 so canvas is visible above document paint */
+/* This wraps the interactive background layer */
+.interactive-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 0; /* sits behind content but still above body paint */
+  overflow: hidden;
+  pointer-events: none; /* canvas listens on window anyway */
+}
+
+/* The foreground wrapper for the actual site pages */
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  /* Removed background: #000000 to allow canvas to show through */
+  z-index: 10; /* ABOVE the canvas */
+  color: #ffffff;
+}
+
+/* Canvas inside bg wrapper */
+.interactive-bg-wrapper canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Shimmer / glossy section header pill ("Why Choose Solana?") */
+.section-header-shell {
+  position: relative;
+  border-radius: 1.25rem; /* ~20px */
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  color: #fff;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(0, 0, 0, 0) 60%),
+    linear-gradient(to bottom right, rgba(20, 20, 20, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(255, 255, 255, 0.1) inset;
+}
+.section-header-title {
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+.section-header-sub {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* "Learn More" / info button look from hwidr */
+.btn-ghost-panel {
+  position: relative;
+  border-radius: 0.75rem;
+  background: radial-gradient(circle at 50% -20%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%),
+    rgba(20, 20, 20, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2rem;
+  padding: 0.6rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all .15s ease;
+}
+.btn-ghost-panel:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* underline + dotted row under the header/nav */
+.header-underline-wrap {
+  position: relative;
+}
+.header-underline-line {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(220, 38, 38, 0.8);
+}
+.header-underline-dots {
+  height: 4px;
+  width: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.6) 1px, rgba(0, 0, 0, 0) 1px);
+  background-size: 6px 4px;
+  opacity: 0.4;
+}
+
+/* shimmer timing hook if we ever want animated pearl motion */
+@keyframes pearlShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Custom animation delays for loading screens */
+.delay-150 {
+  animation-delay: 150ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Slower spin animation for dual-spinner effect */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Add desktop-scale-wrapper for 80% zoom-out effect on desktop */
+@media (min-width: 1280px) {
+  .desktop-scale-wrapper {
+    scale: 0.8;
+    transform-origin: top center;
+  }
+}
+
+/* Add desktop-scale-downloads for 85% zoom (15% smaller) on downloads page */
+@media (min-width: 1280px) {
+  .desktop-scale-downloads {
+    scale: 0.85;
+    transform-origin: top center;
+  }
+}
+
+/* Smooth dropdown animation for header menus */
+@keyframes dropdownFade {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(8px) scale(1);
+  }
+}
+
+/* Force "looks like 80% zoom" on desktop product pages */
+.desktop-scale-wrapper-products {
+  transform-origin: top center;
+}
+
+@media (min-width: 768px) {
+  .desktop-scale-wrapper-products {
+    transform: scale(0.8);
+  }
+}
