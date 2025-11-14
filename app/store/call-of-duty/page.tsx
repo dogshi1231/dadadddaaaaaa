@@ -1,10 +1,5 @@
 "use client"
 
-/**
- * Copyright (c) 2025 Solana Cheats. All rights reserved.
- * Unauthorized copying, distribution, or use of this code is strictly prohibited.
- */
-
 import { useState, useRef, useEffect } from "react"
 import { Header } from "@/components/header"
 import { ProductCard3D } from "@/components/product-card-3d"
@@ -16,27 +11,27 @@ const products = [
     id: "zenith",
     name: "Zenith",
     description:
-      "Premium Fortnite hack with aimbot, ESP, and exclusive features",
+      "Premium COD Internal Cheat with aimbot, ESP, and exclusive features",
     priceRange: "From $4.99",
     media: "https://i.imgur.com/PbDY5pe.mp4",
     variants: [
       {
         duration: "1-day",
-        name: "Day Key",
+        name: "One Day",
         description: "Perfect for testing",
         price: "$4.99",
         sellhubVariantId: "dcc91018-acfe-488e-8b58-ebc77e7cb19a",
       },
       {
         duration: "1-week",
-        name: "Week Key",
+        name: "1 Week",
         description: "Short-term access",
-        price: "$15.00",
+        price: "$14.99",
         sellhubVariantId: "d4b37faf-0983-4251-8704-5170676d0371",
       },
       {
         duration: "1-month",
-        name: "Month Key",
+        name: "1 Month",
         description: "Most popular choice",
         price: "$24.99",
         badge: "POPULAR" as const,
@@ -55,29 +50,29 @@ const products = [
   {
     id: "sol-external",
     name: "Sol EXTERNAL",
-    description: "Advanced Call of duty cheat with undetected aimbot and ESP",
+    description: "Advanced Call of duty External cheat with undetected aimbot and ESP",
     priceRange: "From $4.99",
     media: "https://i.imgur.com/VxXivO3.mp4",
     variants: [
       {
         duration: "1-day",
-        name: "Day Key",
+        name: "One Time",
         description: "Perfect for testing",
         price: "$4.99",
         sellhubVariantId: "48436f25-59d8-4466-b236-06335c6338f9",
       },
       {
         duration: "1-week",
-        name: "Week Key",
+        name: "1 Week",
         description: "Short-term access",
-        price: "$15.00",
+        price: "$14.99",
         sellhubVariantId: "5fd729e7-aed2-42b8-a2a2-3980ca86e57d",
       },
       {
         duration: "1-month",
-        name: "Month Key",
+        name: "1 Month",
         description: "Most popular choice",
-        price: "$24.99",
+        price: "$25.99",
         badge: "POPULAR" as const,
         sellhubVariantId: "56e239bc-f75c-4ec2-b5ab-88d7bb7d21f9",
       },
@@ -95,22 +90,22 @@ const products = [
     id: "verse-perm-spoofer",
     name: "Verse Perm Spoofer",
     description: "Lifetime HWID protection for all games and anti-cheats",
-    priceRange: "From $22.00",
+    priceRange: "From $14.90",
     media: "https://i.imgur.com/8bEEyBp.mp4",
     badge: "POPULAR",
     variants: [
       {
         duration: "1-day",
         name: "One Time",
-        description: "One-time payment",
-        price: "$22.00",
+        description: "Perfect for testing",
+        price: "$24",
         sellhubVariantId: "59a729ae-ac5f-4b77-a5d9-06babb7e1d29",
       },
       {
         duration: "lifetime",
         name: "Lifetime",
-        description: "Lifetime access",
-        price: "$70.00",
+        description: "One-time payment",
+        price: "$70",
         badge: "BEST VALUE" as const,
         sellhubVariantId: "33d45cfa-b85b-4ecf-b9a7-751bd008b463",
       },
@@ -119,37 +114,37 @@ const products = [
   {
     id: "temp",
     name: "Temp",
-    description: "Bypass Riot Vanguard anti-cheat system completely",
+    description: "Temporary protection for all games and anti-cheats",
     priceRange: "From $4.99",
     media: "https://i.imgur.com/GY4tjyh.mp4",
     variants: [
       {
         duration: "1-day",
-        name: "Day",
+        name: "One Time",
         description: "Perfect for testing",
-        price: "$4.99",
+        price: "$$3.00",
         sellhubVariantId: "aad724ae-e5ef-4fd4-9a63-090fc2de08df",
       },
       {
         duration: "1-week",
-        name: "Week",
+        name: "1 Week",
         description: "Short-term access",
         price: "$10.00",
         sellhubVariantId: "575fff03-de8e-4317-9bad-49753049e3f9",
       },
       {
         duration: "1-month",
-        name: "Month",
+        name: "1 Month",
         description: "Most popular choice",
         price: "$20.00",
         badge: "POPULAR" as const,
         sellhubVariantId: "799fe2b1-26d4-4dd6-ba4f-2e12e2257682",
       },
       {
-        duration: "lifetime",
-        name: "Lifetime",
+        duration: "3 Months",
+        name: "3 Months",
         description: "One-time payment",
-        price: "$40.00",
+        price: "$55.00",
         badge: "BEST VALUE" as const,
         sellhubVariantId: "294a7f9d-333a-4043-ab66-41193cda597b",
       },
@@ -158,7 +153,7 @@ const products = [
   {
     id: "phone-verified-steam",
     name: "Phone Verified Steam Accounts",
-    description: "Temporary HWID spoofing for quick session protection",
+    description: "Steam accounts with phone verification for added security",
     priceRange: "$0.18",
     media: "https://i.imgur.com/gTrloXO.mp4",
     variants: [
