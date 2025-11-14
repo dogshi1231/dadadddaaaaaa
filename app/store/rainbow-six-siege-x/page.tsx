@@ -11,24 +11,30 @@ const products = [
     id: "crusader",
     name: "Crusader",
     description: "Tactical advantage with undetected features for Rainbow Six Siege",
-    priceRange: "From $5.99",
+    priceRange: "From $7.00",
     media: "https://i.imgur.com/crusader-r6.mp4",
     variants: [
-      { duration: "1-day", name: "One Time", description: "Perfect for testing", price: "$5.99" },
-      { duration: "1-week", name: "1 Week", description: "Short-term access", price: "$14.99" },
+      { 
+        duration: "1-day", 
+        name: "One Day", 
+        description: "Perfect for testing", 
+        price: "$6.00",
+        sellhubVariantId: "f6c1768e-954a-4ea0-a1c8-8f62d3453017",
+      },
+      { 
+        duration: "1-week", 
+        name: "1 Week", 
+        description: "Short-term access", 
+        price: "$30.00",
+        sellhubVariantId: "10926a5e-d29a-4625-bb30-66afe6eb1498",
+      },
       {
         duration: "1-month",
         name: "1 Month",
         description: "Most popular choice",
-        price: "$29.99",
+        price: "$60.00",
         badge: "POPULAR" as const,
-      },
-      {
-        duration: "lifetime",
-        name: "Lifetime",
-        description: "One-time payment",
-        price: "$59.99",
-        badge: "BEST VALUE" as const,
+        sellhubVariantId: "56fe3592-93a3-41e8-a7d1-11fc1edd8535",
       },
     ],
   },
@@ -109,6 +115,7 @@ export default function RainbowSixPage() {
           productName={selectedProduct.name}
           variants={selectedProduct.variants}
           onSelectVariant={handleSelectVariant}
+          readyForEmbed={true}
         />
       )}
     </div>
